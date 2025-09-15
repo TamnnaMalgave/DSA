@@ -1,0 +1,27 @@
+class Solution {
+    public static boolean isSubsequence(String d,String s)
+        {
+            int i=0,j=0;
+            while(i<d.length()&&j<s.length()){
+                if(d.charAt(i)==s.charAt(j))
+                {
+                    i++;
+                }
+                j++;
+            }
+            return i==d.length();
+        }
+    public String findLongestWord(String s, List<String> dictionary) {
+        String res="";
+        Collections.sort(dictionary);
+        for(String word:dictionary)
+        {
+            if(isSubsequence(word,s)&&word.length()>res.length())
+            {
+                res=word;
+            }
+        }
+        return res;
+
+    }
+}
