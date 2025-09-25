@@ -1,0 +1,34 @@
+public class Solution {
+	public void setZeroes(ArrayList<ArrayList<Integer>> a) {
+        int rows=a.size();
+        int cols=a.get(0).size();
+        boolean[] zeroRow=new boolean[rows];
+        boolean[] zeroCols=new boolean[cols];
+        
+        
+        for(int i=0;i<rows;i++)
+        {
+            for(int j=0;j<cols;j++)
+            {
+                if(a.get(i).get(j)==0)
+                {
+                    zeroRow[i]=true;
+                    zeroCols[j]=true;
+                }
+             
+            }
+
+        }
+         for(int i=0;i<rows;i++)
+        {
+            for(int j=0;j<cols;j++)
+            {
+                if(zeroRow[i]|| zeroCols[j])
+                {
+                   a.get(i).set(j,0);
+                }
+            }
+        }
+       
+	}
+}
